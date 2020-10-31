@@ -1,7 +1,8 @@
 name: blinking_text
 description: A simple plugin to create blinking text
-version: 0.0.2
-homepage: http://tltemplates.com
+version: 0.0.4
+repository: https://github.com/androideen/blinking_text
+homepage: https://tltemplates.com
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
