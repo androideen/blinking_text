@@ -20,10 +20,6 @@ BlinkText('Blink Animation'),
 Blink text from original color to orange indefinitely
 
 ```
-BlinkText('Blink Animation'),
-```
-
-```
 BlinkText(
 	'Blink Animation',
 	style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
