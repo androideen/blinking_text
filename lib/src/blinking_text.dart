@@ -4,19 +4,19 @@ class BlinkText extends StatefulWidget {
   /// Creates a [BlinkText] widget
   const BlinkText(this.data,
       {Key? key,
-      this.style,
-      this.strutStyle,
-      this.textAlign,
-      this.textDirection,
-      this.locale,
-      this.softWrap,
-      this.overflow,
-      this.textScaleFactor,
-      this.maxLines,
-      this.beginColor,
-      this.endColor,
-      this.duration,
-      this.times})
+        this.style,
+        this.strutStyle,
+        this.textAlign,
+        this.textDirection,
+        this.locale,
+        this.softWrap,
+        this.overflow,
+        this.textScaleFactor,
+        this.maxLines,
+        this.beginColor,
+        this.endColor,
+        this.duration,
+        this.times})
       : super(key: key);
 
   /// The text to display.
@@ -128,7 +128,8 @@ class BlinkTextState extends State<BlinkText>
     if (widget.beginColor != null) {
       beginColor = widget.beginColor;
     } else {
-      if (widget.style != null || widget.style!.inherit) {
+
+      if (widget.style != null && widget.style!.inherit) {
         beginColor = widget.style!.color;
       }
     }
@@ -185,11 +186,16 @@ class BlinkTextState extends State<BlinkText>
 
   @override
   Widget build(BuildContext context) {
-    var style = widget.style!;
-    if (widget.style == null || widget.style!.inherit) {
-      var defaultTextStyle = DefaultTextStyle.of(context);
-      style = defaultTextStyle.style.merge(widget.style);
+
+    var defaultTextStyle = DefaultTextStyle.of(context);
+    var style = defaultTextStyle.style;
+
+    if (widget.style != null) {
+      style = defaultTextStyle.style.merge(widget.style!);
     }
+    if (MediaQuery.boldTextOverride(context))
+      style = style.merge(const TextStyle(fontWeight: FontWeight.bold));
+
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, child) {
