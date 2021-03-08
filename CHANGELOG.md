@@ -1,3 +1,3 @@
-# [0.0.4] - 2020/10/31.
+# [1.0.0] - 2021/03/08.
 
-* Update pubspec
+* Null safety support

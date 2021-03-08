@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BlinkText extends StatefulWidget {
   /// Creates a [BlinkText] widget
   const BlinkText(this.data,
-      {Key key,
+      {Key? key,
       this.style,
       this.strutStyle,
       this.textAlign,
@@ -17,33 +17,23 @@ class BlinkText extends StatefulWidget {
       this.endColor,
       this.duration,
       this.times})
-      : assert(data != null,
-            'A non-null String must be provided to a BlinkText widget.'),
-        textSpan = null,
-        super(key: key);
+      : super(key: key);
 
   /// The text to display.
-  ///
-  /// This will be null if a [textSpan] is provided instead.
   final String data;
-
-  /// The text to display as a [InlineSpan].
-  ///
-  /// This will be null if [data] is provided instead.
-  final InlineSpan textSpan;
 
   /// If non-null, the style to use for this text.
   ///
   /// If the style's "inherit" property is true, the style will be merged with
   /// the closest enclosing [DefaultTextStyle]. Otherwise, the style will
   /// replace the closest enclosing [DefaultTextStyle].
-  final TextStyle style;
+  final TextStyle? style;
 
   /// {@macro flutter.painting.textPainter.strutStyle}
-  final StrutStyle strutStyle;
+  final StrutStyle? strutStyle;
 
   /// How the text should be aligned horizontally.
-  final TextAlign textAlign;
+  final TextAlign? textAlign;
 
   /// The directionality of the text.
   ///
@@ -58,7 +48,7 @@ class BlinkText extends StatefulWidget {
   /// its left.
   ///
   /// Defaults to the ambient [Directionality], if any.
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
   /// Used to select a font when the same Unicode character can
   /// be rendered differently, depending on the locale.
@@ -67,17 +57,17 @@ class BlinkText extends StatefulWidget {
   /// is inherited from the enclosing app with `Localizations.localeOf(context)`.
   ///
   /// See [RenderParagraph.locale] for more information.
-  final Locale locale;
+  final Locale? locale;
 
   /// Whether the text should break at soft line breaks.
   ///
   /// If false, the glyphs in the text will be positioned as if there was unlimited horizontal space.
-  final bool softWrap;
+  final bool? softWrap;
 
   /// How visual overflow should be handled.
   ///
   /// Defaults to retrieving the value from the nearest [DefaultTextStyle] ancestor.
-  final TextOverflow overflow;
+  final TextOverflow? overflow;
 
   /// The number of font pixels for each logical pixel.
   ///
@@ -87,7 +77,7 @@ class BlinkText extends StatefulWidget {
   /// The value given to the constructor as textScaleFactor. If null, will
   /// use the [MediaQueryData.textScaleFactor] obtained from the ambient
   /// [MediaQuery], or 1.0 if there is no [MediaQuery] in scope.
-  final double textScaleFactor;
+  final double? textScaleFactor;
 
   /// An optional maximum number of lines for the text to span, wrapping if necessary.
   /// If the text exceeds the given number of lines, it will be truncated according
@@ -100,19 +90,19 @@ class BlinkText extends StatefulWidget {
   /// an explicit number for its [DefaultTextStyle.maxLines], then the
   /// [DefaultTextStyle] value will take precedence. You can use a [RichText]
   /// widget directly to entirely override the [DefaultTextStyle].
-  final int maxLines;
+  final int? maxLines;
 
   /// Duration of blinking animation
-  final Duration duration;
+  final Duration? duration;
 
   /// Times of blinking animation
-  final int times;
+  final int? times;
 
   /// Begin color, it overrides color in style
-  final Color beginColor;
+  final Color? beginColor;
 
   /// End color, default value is Colors.transparent
-  final Color endColor;
+  final Color? endColor;
 
   @override
   BlinkTextState createState() => BlinkTextState();
@@ -120,11 +110,11 @@ class BlinkText extends StatefulWidget {
 
 class BlinkTextState extends State<BlinkText>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Color> _colorAnimation;
+  late AnimationController _controller;
+  late Animation<Color?> _colorAnimation;
   int _counter = 0;
-  Duration duration = Duration(milliseconds: 500);
-  Color beginColor = Colors.black;
+  Duration? duration = Duration(milliseconds: 500);
+  Color? beginColor = Colors.black;
 
   @override
   void initState() {
@@ -138,8 +128,8 @@ class BlinkTextState extends State<BlinkText>
     if (widget.beginColor != null) {
       beginColor = widget.beginColor;
     } else {
-      if (widget.style != null || widget.style.inherit) {
-        beginColor = widget.style.color;
+      if (widget.style != null || widget.style!.inherit) {
+        beginColor = widget.style!.color;
       }
     }
 
@@ -167,7 +157,7 @@ class BlinkTextState extends State<BlinkText>
   }
 
   _endTween() {
-    Future.delayed(duration, () {
+    Future.delayed(duration!, () {
       _controller.stop();
     });
   }
@@ -195,8 +185,8 @@ class BlinkTextState extends State<BlinkText>
 
   @override
   Widget build(BuildContext context) {
-    var style = widget.style;
-    if (widget.style == null || widget.style.inherit) {
+    var style = widget.style!;
+    if (widget.style == null || widget.style!.inherit) {
       var defaultTextStyle = DefaultTextStyle.of(context);
       style = defaultTextStyle.style.merge(widget.style);
     }
