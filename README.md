@@ -6,13 +6,22 @@ A simple plugin to create blinking text
 
 Properties:
 It supports properties as same as Text widget's and includes 4 others for animation 
-* beginColor: it can overrides style's color.
-* endColor: the color the text will blink to. If there is no endColor defined, opacity 0 is used. 
-* times: number of times text blinks.
-* duration: interval of blinking animation.
+* beginColor - It overrides widget TextStyle's color.
+* endColor - The color the text will blink to. If there is no endColor defined, opacity 0 is used.
+* times - Number of times text blinks.
+* duration - Interval of blinking animation.
+
+Blink text with opacity
+
+```
+BlinkText('Blink Animation'),
+```
 
 Blink text from original color to orange indefinitely
 
+```
+BlinkText('Blink Animation'),
+```
 
 ```
 BlinkText(
