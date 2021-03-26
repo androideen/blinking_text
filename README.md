@@ -41,4 +41,4 @@ BlinkText(
 ),
 ```
 
-Original Link: https://tltemplates.com/blinking_text/
+Original Link: https://www.tldevtech.com/blinking_text/
