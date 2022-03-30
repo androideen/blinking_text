@@ -37,8 +37,8 @@ BlinkText(
 	beginColor: Colors.black,
 	endColor: Colors.orange,
 	times: 10,
-	durtaion: Duration(seconds: 1)
+	duration: Duration(seconds: 1)
 ),
 ```
 
-Original Link: https://www.tldevtech.com/blinking_text/
+Original Link: https://tleapps.com/blinking_text/

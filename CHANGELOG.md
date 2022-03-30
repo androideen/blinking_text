@@ -1,4 +1,3 @@
-# [1.0.1+2] - 2021/03/08.
+# [1.0.1+3] - 2022/03/30.
 
-* Null safety support
 * Update readme
