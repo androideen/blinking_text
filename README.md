@@ -5,7 +5,7 @@ A simple plugin to create blinking text
 ## How to use
 
 Properties:
-It supports properties as same as Text widget's and includes 4 others for animation 
+It supports properties of Text widget's and includes 4 more properties for animation
 * beginColor - It overrides widget TextStyle's color.
 * endColor - The color the text will blink to. If there is no endColor defined, opacity 0 is used.
 * times - Number of times text blinks.
