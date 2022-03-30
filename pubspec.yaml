@@ -1,5 +1,5 @@
 name: blinking_text
-description: A simple plugin to create blinking text. It allows to adjust duration of a blink and number of times text blinks before stopping.
+description: A simple plugin to creating a blinking text. It allows to adjust duration of a blink and number of times text blinks before stopping.
 version: 1.0.1+3
 repository: https://github.com/androideen/blinking_text
 homepage: https://tleapps.com
